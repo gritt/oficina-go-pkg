@@ -1,6 +1,10 @@
 package hello
 
-import "testing"
+import (
+	"testing"
+
+	"github.com/stretchr/testify/assert"
+)
 
 func TestHelloWorld(t *testing.T) {
 	// given
@@ -11,10 +15,6 @@ func TestHelloWorld(t *testing.T) {
 	gotHello, gotLen := HelloWorld()
 
 	// then
-	if gotHello != wantHello {
-		t.Errorf("HelloWorld() = %v, want %v", gotHello, wantHello)
-	}
-	if gotLen != wantLen {
-		t.Errorf("HelloWorld() = %d, want %d", gotLen, wantLen)
-	}
+	assert.Equal(t, wantHello, gotHello)
+	assert.Equal(t, wantLen, gotLen)
 }
